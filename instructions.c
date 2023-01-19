@@ -6,11 +6,11 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:47:45 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/19 13:11:17 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/01/19 13:32:24 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <proto.h>
+#include "proto.h"
 
 t_list	swap(t_list list, int ab)
 {
@@ -64,6 +64,7 @@ t_list	rotate(t_list list, char ab)
 		while (list.a[++i + 1])
 			list.a[i] = list.a[i + 1];
 		list.a[i] = first;
+		ft_putstr("ra");
 	}
 	else if (ab == 'b')
 	{
@@ -71,6 +72,7 @@ t_list	rotate(t_list list, char ab)
 		while (list.b[++i + 1])
 			list.b[i] = list.b[i + 1];
 		list.b[i] = first;
+		ft_putstr("rb");
 	}
 	return (list);
 }

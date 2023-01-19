@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:47:42 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/17 19:49:00 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/01/19 13:14:59 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,25 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct s_list{
+	int	*a;
+	int	*b;
+}	t_list;
+
+void	ft_putstr(char *s);
+int		tablen(int *s);
+
+/* INSTRUCTIONS			*/
+t_list	swap(t_list list, int ab);
+t_list	push(t_list list, char ab);
+t_list	rotate(t_list list, char ab);
+
+/* INSTRUCTIONS	DOUBLE	*/
+t_list	double_rotate(t_list list);
+t_list	double_swap(t_list list);
+
+/* INSTRUCTIONS	REVERSE	*/
+t_list	rev_rotate(t_list list, char ab);
 
 #endif

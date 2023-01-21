@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:15:40 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/21 17:05:45 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/01/21 17:07:26 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(int argc, char **argv)
 	push(&list, 'b');
 	push(&list, 'b');
 	print_stacks(list, len);
-	double_rev_rotate(&list);
+	double_rev_rotate(&list); // -> marche pas
 	print_stacks(list, len);
 	return (0);
 }

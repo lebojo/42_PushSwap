@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:47:42 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/19 15:15:35 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/01/21 17:05:36 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 
 typedef struct s_list{
 	int	*a;
+	int	top_a;
 	int	*b;
+	int	top_b;
 }	t_list;
 
 /* UTILS				*/
@@ -28,15 +30,16 @@ char	*itoa(int val);
 int		ft_atoi(const char *str);
 
 /* INSTRUCTIONS			*/
-t_list	swap(t_list list, int ab);
-t_list	push(t_list list, char ab);
-t_list	rotate(t_list list, char ab);
+void	swap(t_list *list, int ab);
+void	push(t_list *list, char ab);
+void	rotate(t_list *list, char ab);
 
 /* INSTRUCTIONS	DOUBLE	*/
-t_list	double_rotate(t_list list);
-t_list	double_swap(t_list list);
+void	double_rotate(t_list *list);
+void	double_swap(t_list *list);
+void	double_rev_rotate(t_list *list);
 
 /* INSTRUCTIONS	REVERSE	*/
-t_list	rev_rotate(t_list list, char ab);
+void	rev_rotate(t_list *list, char ab);
 
 #endif

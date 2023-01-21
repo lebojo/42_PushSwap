@@ -6,52 +6,50 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:47:45 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/19 13:32:24 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/01/21 16:48:20 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "proto.h"
 
-t_list	swap(t_list list, int ab)
+void	swap(t_list *list, int ab)
 {
 	int	tmp;
 
 	tmp = 0;
-	if (ab == 'a')
+	if (ab == 'a' && list[0].top_a > 1)
 	{
-		tmp = list.a[0];
-		list.a[0] = list.a[1];
-		list.a[1] = tmp;
+		tmp = list[0].a[list[0].top_a];
+		list[0].a[list[0].top_a] = list[0].a[list[0].top_a - 1];
+		list[0].a[list[0].top_a - 1] = tmp;
 		ft_putstr("sa");
 	}
-	else if (ab == 'b')
+	else if (ab == 'b' && list[0].top_b > 1)
 	{
-		tmp = list.b[0];
-		list.b[0] = list.b[1];
-		list.b[1] = tmp;
+		tmp = list[0].b[list[0].top_b];
+		list[0].b[list[0].top_b] = list[0].b[list[0].top_b - 1];
+		list[0].b[list[0].top_b - 1] = tmp;
 		ft_putstr("sb");
 	}
-	return (list);
 }
 
-t_list	push(t_list list, char ab)
+void	push(t_list *list, char ab)
 {
-	if (ab == 'a')
+	if (ab == 'a' && list[0].b[list[0].top_b])
 	{
-		list.a[0] = list.b[0];
-		list.b[0] = 0;
+		list[0].a[++list[0].top_a] = list[0].b[list[0].top_b];
+		list[0].b[list[0].top_b--] = 0;
 		ft_putstr("pa");
 	}
-	else if (ab == 'b')
+	else if (ab == 'b' && list[0].a[list[0].top_a])
 	{
-		list.b[0] = list.a[0];
-		list.a[0] = 0;
+		list[0].b[++list[0].top_b] = list[0].a[list[0].top_a];
+		list[0].a[list[0].top_a--] = 0;
 		ft_putstr("pb");
 	}
-	return (list);
 }
 
-t_list	rotate(t_list list, char ab)
+void	rotate(t_list *list, char ab)
 {
 	int	first;
 	int	i;
@@ -60,19 +58,18 @@ t_list	rotate(t_list list, char ab)
 	i = -1;
 	if (ab == 'a')
 	{
-		first = list.a[0];
-		while (list.a[++i + 1])
-			list.a[i] = list.a[i + 1];
-		list.a[i] = first;
+		first = list[0].a[0];
+		while (list[0].a[++i + 1])
+			list[0].a[i] = list[0].a[i + 1];
+		list[0].a[i] = first;
 		ft_putstr("ra");
 	}
 	else if (ab == 'b')
 	{
-		first = list.b[0];
-		while (list.b[++i + 1])
-			list.b[i] = list.b[i + 1];
-		list.b[i] = first;
+		first = list[0].b[0];
+		while (list[0].b[++i + 1])
+			list[0].b[i] = list[0].b[i + 1];
+		list[0].b[i] = first;
 		ft_putstr("rb");
 	}
-	return (list);
 }

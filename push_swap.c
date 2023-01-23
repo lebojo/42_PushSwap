@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:15:40 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/23 16:36:26 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:46:14 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@ Faire que ca marche avec les 0 et les chifre neg
 */
 
 #include "proto.h"
+
+void	ft_puttab(char *s)
+{
+	int	i;
+
+	i = -1;
+	while (s[++i])
+		write(1, &s[i], 1);
+}
 
 void	init(t_list *list, int argc, char **argv)
 {
@@ -60,21 +69,24 @@ void	print_stacks(t_list list, int len)
 	int	i;
 
 	i = 0;
-	ft_putstr("\n");
-	ft_putstr("\033[0;32mA");
-	ft_putstr("\t");
-	ft_putstr("\033[1;33mB");
-	ft_putstr("\n\033[1;36m---bot---");
-	ft_putstr("\n\033[0;32m");
-	while (i < len - 1)
+	if (DEBUG == 1)
 	{
-		ft_putstr(itoa(list.a[i]));
-		ft_putstr("\t\033[1;33m");
-		ft_putstr(itoa(list.b[i]));
-		ft_putstr("\n\033[0;32m");
-		i++;
+		ft_puttab("\n");
+		ft_puttab("\033[0;32mA");
+		ft_puttab("\t");
+		ft_puttab("\033[1;33mB");
+		ft_puttab("\n\033[1;36m---bot---");
+		ft_puttab("\n\033[0;32m");
+		while (i < len - 1)
+		{
+			ft_puttab(itoa(list.a[i]));
+			ft_puttab("\t\033[1;33m");
+			ft_puttab(itoa(list.b[i]));
+			ft_puttab("\n\033[0;32m");
+			i++;
+		}
+		ft_puttab("\033[0m");
 	}
-	ft_putstr("\033[0m");
 }
 
 int	main(int argc, char **argv)

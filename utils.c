@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:26:57 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/23 15:33:05 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:39:38 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putstr(char *s)
 	i = -1;
 	while (s[++i])
 		write(1, &s[i], 1);
-	//write(1, "\n", 1);
+	write(1, "\n", 1);
 }
 
 int	tablen(int *s)

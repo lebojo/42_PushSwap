@@ -6,13 +6,13 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:47:45 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/21 16:48:20 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:05:13 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "proto.h"
 
-void	swap(t_list *list, int ab)
+void	swap(t_list *list, int ab, int dbl)
 {
 	int	tmp;
 
@@ -22,34 +22,38 @@ void	swap(t_list *list, int ab)
 		tmp = list[0].a[list[0].top_a];
 		list[0].a[list[0].top_a] = list[0].a[list[0].top_a - 1];
 		list[0].a[list[0].top_a - 1] = tmp;
-		ft_putstr("sa");
+		if (!dbl)
+			ft_putstr("sa");
 	}
 	else if (ab == 'b' && list[0].top_b > 1)
 	{
 		tmp = list[0].b[list[0].top_b];
 		list[0].b[list[0].top_b] = list[0].b[list[0].top_b - 1];
 		list[0].b[list[0].top_b - 1] = tmp;
-		ft_putstr("sb");
+		if (!dbl)
+			ft_putstr("sb");
 	}
 }
 
-void	push(t_list *list, char ab)
+void	push(t_list *list, char ab, int dbl)
 {
 	if (ab == 'a' && list[0].b[list[0].top_b])
 	{
 		list[0].a[++list[0].top_a] = list[0].b[list[0].top_b];
 		list[0].b[list[0].top_b--] = 0;
-		ft_putstr("pa");
+		if (!dbl)
+			ft_putstr("pa");
 	}
 	else if (ab == 'b' && list[0].a[list[0].top_a])
 	{
 		list[0].b[++list[0].top_b] = list[0].a[list[0].top_a];
 		list[0].a[list[0].top_a--] = 0;
-		ft_putstr("pb");
+		if (!dbl)
+			ft_putstr("pb");
 	}
 }
 
-void	rotate(t_list *list, char ab)
+void	rotate(t_list *list, char ab, int dbl)
 {
 	int	first;
 	int	i;
@@ -62,7 +66,8 @@ void	rotate(t_list *list, char ab)
 		while (list[0].a[++i + 1])
 			list[0].a[i] = list[0].a[i + 1];
 		list[0].a[i] = first;
-		ft_putstr("ra");
+		if (!dbl)
+			ft_putstr("ra");
 	}
 	else if (ab == 'b')
 	{
@@ -70,6 +75,7 @@ void	rotate(t_list *list, char ab)
 		while (list[0].b[++i + 1])
 			list[0].b[i] = list[0].b[i + 1];
 		list[0].b[i] = first;
-		ft_putstr("rb");
+		if (!dbl)
+			ft_putstr("rb");
 	}
 }

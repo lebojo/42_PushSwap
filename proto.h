@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:47:42 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/24 21:56:52 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/01/25 00:10:11 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_list{
 	int	top_a;
 	int	*b;
 	int	top_b;
+	int	size;
 }	t_list;
 
 /* UTILS				*/
@@ -48,5 +49,10 @@ void	double_rev_rotate(t_list *list);
 
 /* INSTRUCTIONS	REVERSE	*/
 void	rev_rotate(t_list *list, char ab, int dbl);
+
+/* ALGORITHM			*/
+void	simple(t_list list, int argc);
+void	algo_complex(t_list list, int chunk_size);
+int		up_or_down(int place, int size);
 
 #endif

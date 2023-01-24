@@ -6,13 +6,18 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:15:40 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/24 21:49:10 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/01/25 00:17:37 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 TODO:
 Faire que ca marche avec les 0 et les chifre neg
+ALGO:
+trouver le plus proche du haut de la stack dans les chunk 
+(size/10 = nb de chunk, et ) 
+et le plus proche du bas, pour savoir le quel bouger en premier, puis sur le
+deuxieme chunk etc..
 */
 
 #include "proto.h"
@@ -35,6 +40,7 @@ void	init(t_list *list, int argc, char **argv)
 	list[0].b = malloc(sizeof(int) * argc);
 	list[0].top_a = argc - 2;
 	list[0].top_b = -1;
+	list[0].size = argc - 2;
 	argc--;
 	while (argc > 0)
 	{
@@ -44,28 +50,18 @@ void	init(t_list *list, int argc, char **argv)
 	}
 }
 
-int	find_tiny(t_list list)
+int	chunk_size_calculator(int argc)
 {
-	int	i;
-	int	tmp;
+	int	size;
 
-	i = 0;
-	tmp = 0;
-	while (i <= list.top_a)
+	size = 0;
+	if (argc > 10)
 	{
-		if (list.a[tmp] > list.a[i])
-			tmp = i;
-		i++;
+		size = argc / 10;
 	}
-	return (tmp);
-}
-
-int	up_or_down(int place, int size)
-{
-	if (place + 1 > size / 2)
-		return (1);
 	else
-		return (0);
+		size = 1;
+	return (size);
 }
 
 void	print_stacks(t_list list, int len)
@@ -102,32 +98,7 @@ int	main(int argc, char **argv)
 	len = argc;
 	init(&list, argc, argv);
 	print_stacks(list, len);
-	while (list.top_a >= 0)
-	{
-		i = find_tiny(list);
-		if (up_or_down(i, argc) == 1)
-		{
-			while (i < list.top_a)
-			{
-				rotate(&list, 'a', 0);
-				i++;
-			}
-			push(&list, 'b', 0);
-			print_stacks(list, len);
-		}
-		else
-		{
-			while (i + 1 != 0)
-			{
-				rev_rotate(&list, 'a', 0);
-				i--;
-			}
-			push(&list, 'b', 0);
-			print_stacks(list, len);
-		}
-	}
-	while (list.top_b >= 0)
-		push(&list, 'a', 0);
+	algo_complex(list, chunk_size_calculator(argc));
 	print_stacks(list, len);
 	return (0);
 }

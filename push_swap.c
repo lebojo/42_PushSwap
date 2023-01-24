@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:15:40 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/23 16:46:14 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/01/24 21:49:10 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ void	ft_puttab(char *s)
 
 void	init(t_list *list, int argc, char **argv)
 {
+	int	i;
+
+	i = 0;
 	list[0].a = malloc(sizeof(int) * argc);
 	list[0].b = malloc(sizeof(int) * argc);
 	list[0].top_a = argc - 2;
@@ -35,8 +38,9 @@ void	init(t_list *list, int argc, char **argv)
 	argc--;
 	while (argc > 0)
 	{
-		list[0].a[argc - 1] = ft_atoi(argv[argc]);
+		list[0].a[i] = ft_atoi(argv[argc]);
 		argc--;
+		i++;
 	}
 }
 
@@ -105,7 +109,7 @@ int	main(int argc, char **argv)
 		{
 			while (i < list.top_a)
 			{
-				rev_rotate(&list, 'a', 0);
+				rotate(&list, 'a', 0);
 				i++;
 			}
 			push(&list, 'b', 0);
@@ -115,7 +119,7 @@ int	main(int argc, char **argv)
 		{
 			while (i + 1 != 0)
 			{
-				rotate(&list, 'a', 0);
+				rev_rotate(&list, 'a', 0);
 				i--;
 			}
 			push(&list, 'b', 0);

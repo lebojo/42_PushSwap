@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:47:45 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/23 16:05:13 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/01/24 21:49:14 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	push(t_list *list, char ab, int dbl)
 	}
 }
 
-void	rotate(t_list *list, char ab, int dbl)
+void	rev_rotate(t_list *list, char ab, int dbl)
 {
 	int	first;
 	int	i;
@@ -67,7 +67,7 @@ void	rotate(t_list *list, char ab, int dbl)
 			list[0].a[i] = list[0].a[i + 1];
 		list[0].a[i] = first;
 		if (!dbl)
-			ft_putstr("ra");
+			ft_putstr("rra");
 	}
 	else if (ab == 'b')
 	{
@@ -76,6 +76,6 @@ void	rotate(t_list *list, char ab, int dbl)
 			list[0].b[i] = list[0].b[i + 1];
 		list[0].b[i] = first;
 		if (!dbl)
-			ft_putstr("rb");
+			ft_putstr("rrb");
 	}
 }

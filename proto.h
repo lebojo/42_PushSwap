@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:47:42 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/25 00:10:11 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/02/01 00:46:16 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ typedef struct s_list{
 
 /* UTILS				*/
 void	ft_putstr(char *s);
-int		tablen(int *s);
 char	*itoa(int val);
 int		ft_atoi(const char *str);
+int		find_nb(int *ls, int nb, int max);
 
 /* CHECK				*/
 int		validity_check(char c);

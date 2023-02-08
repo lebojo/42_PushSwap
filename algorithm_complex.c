@@ -83,27 +83,26 @@ void	algo_complex(t_list list, int chunk_size)
 
 	chunk = malloc(sizeof(int) * chunk_size);
 	tmp = list.top_a;
-	while (list.top_a >= 0)
+	while (list.top_a >= 0) //Tant qu'on a pas trié tout A
 	{
 		i = 0;
-		while (i < chunk_size)
+		while (i < chunk_size) //On fabrique le chunk
 			chunk[i++] = find_tiniest(list, chunk, chunk_size);
 		i = 0;
 		ii = 0;
 		while (i < chunk_size) //Pour chaque nb du chunk
 		{
-			while (ii < chunk_size - i) // pour chaque nb du chunk
+			while (ii < chunk_size - i) // pour chaque nb du chunk on trouve le plus rapide à move
 			{
 				if (move_calculator(find_nb(list.a, tmp, list.top_a), list.top_a) > move_calculator(find_nb(list.a, chunk[ii], list.top_a), list.top_a))
 				{
 					tmp = chunk[ii]; //TMP = l'index dans la list ave le moins de move
-					tmp2 = ii;
+					tmp2 = ii; //TMP2 = L'index dans le chunk ave le moins de move
 				}
 				ii++;
 			}
-			chunk = align_chunk(chunk, tmp2, chunk_size - i);
 			tmp = find_nb(list.a, tmp, list.top_a);
-			if (move_calculator(tmp, list.top_a) >= list.top_a / 2) //Regarde si rotate ou rev_rotate
+			if (move_calculator(tmp, list.top_a) <= list.top_a / 2) //Regarde si rotate ou rev_rotate
 			{
 				tmp = list.a[tmp]; //Prend le nombre a push
 				while (list.a[list.top_a] != tmp) // On fait l'action tant qu' qu'il est pas au top
@@ -117,7 +116,7 @@ void	algo_complex(t_list list, int chunk_size)
 					rev_rotate(&list, 'a', 0);
 				push(&list, 'b', 0);
 			}
-			break ;
+			chunk = align_chunk(chunk, tmp2, chunk_size - i);
 			i++;
 		}
 		break ;

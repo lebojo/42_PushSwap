@@ -82,14 +82,18 @@ void	algo_complex(t_list list, int chunk_size)
 	int	tmp2;
 
 	chunk = malloc(sizeof(int) * chunk_size);
-	tmp = list.top_a;
 	while (list.top_a >= 0) //Tant qu'on a pas trié tout A
 	{
 		i = 0;
 		while (i < chunk_size) //On fabrique le chunk
+		{
 			chunk[i++] = find_tiniest(list, chunk, chunk_size);
+			ft_putstr(itoa(chunk[i++]));
+		}
+		break;
 		i = 0;
 		ii = 0;
+		tmp = chunk[0];
 		while (i < chunk_size) //Pour chaque nb du chunk
 		{
 			while (ii < chunk_size - i) // pour chaque nb du chunk on trouve le plus rapide à move
@@ -118,7 +122,10 @@ void	algo_complex(t_list list, int chunk_size)
 			}
 			chunk = align_chunk(chunk, tmp2, chunk_size - i);
 			i++;
+			break;
 		}
-		break ;
+		if (list.top_a + 1 > chunk_size) // On vérifie si chunk size peut rester la même
+			chunk_size = list.top_a;
+		break;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:26:57 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/01 00:45:56 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/02/09 17:07:40 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,21 +87,4 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (res_sign * res);
-}
-
-int	find_nb(int *ls, int nb, int max)
-{
-	int	i;
-
-	i = 0;
-	while (i < max)
-	{
-		if (nb == ls[i])
-			break ;
-		i++;
-	}
-	if (i == max)
-		return (-1);
-	else
-		return (i);
 }

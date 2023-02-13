@@ -32,7 +32,6 @@ typedef struct s_list{
 void	ft_putstr(char *s);
 char	*itoa(int val);
 int		ft_atoi(const char *str);
-int		find_nb(int *ls, int nb, int max);
 
 /* CHECK				*/
 int		validity_check(char c);

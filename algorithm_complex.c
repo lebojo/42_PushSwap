@@ -124,7 +124,7 @@ void b_sort_to_a(t_list list)
 	while (list.top_b >= 0)
 	{
 		i = find_tiny(list);
-		if (up_or_down(i, list.size) == 1)
+		if (up_or_down(i, list.top_b) == 1)
 		{
 			while (i++ < list.top_b)
 				rotate(&list, 'b', 0);
@@ -157,7 +157,7 @@ void	algo_complex(t_list list, int chunk_size)
 		while (i_chunk != chunk_size)
 		{
 			i = nb_to_index(chunk[i_chunk], list); // i = index dans la list
-			if (up_or_down(i, list.size) == 1) //Rotate ou Rev_rotate
+			if (up_or_down(i, list.top_a) == 1) //Rotate ou Rev_rotate
 			{
 				while (i++ < list.top_a)
 					rotate(&list, 'a', 0);
@@ -175,34 +175,7 @@ void	algo_complex(t_list list, int chunk_size)
 		free(chunk);
 		chunk = NULL;
 	}
-	// On fait le dernier chunk:
-	chunk_size = list.top_a + 1;
-	i_chunk = 0;
-	chunk = malloc(sizeof(int) * chunk_size);
-	//On construit le chunk:
-	while (i_chunk != chunk_size)
-		chunk[i_chunk++] = find_tiniest(list, chunk, chunk_size);
-	align_chunk(&chunk, chunk_size, list, 0); // = Tri du moins de mouvements au plus de mouvement dans le chunk
-	i_chunk = 0;
-	while (i_chunk != chunk_size)
-	{
-		i = nb_to_index(chunk[i_chunk], list); // i = index dans la list
-		if (up_or_down(i, list.size) == 1) //Rotate ou Rev_rotate
-		{
-			while (i++ < list.top_a)
-				rotate(&list, 'a', 0);
-			push(&list, 'b', 0);
-		}
-		else
-		{
-			while (i-- + 1 != 0)
-				rev_rotate(&list, 'a', 0);
-			push(&list, 'b', 0);
-		}
-		i_chunk++;
-		align_chunk(&chunk, chunk_size, list, i_chunk);
-	}
-	free(chunk);
-	chunk = NULL;
+	while (list.top_a >= 0)
+		push(&list, 'b', 0);
 	b_sort_to_a(list);
 }

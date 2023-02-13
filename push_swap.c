@@ -55,9 +55,9 @@ int	chunk_size_calculator(int argc)
 	int	size;
 
 	size = 0;
-	if (argc > 10)
+	if (argc > 2)
 	{
-		size = argc / 10;
+		size = argc / 5;
 	}
 	else
 		size = 1;
@@ -102,3 +102,4 @@ int	main(int argc, char **argv)
 	print_stacks(list, len);
 	return (0);
 }
+//TODO: Trouver la bonne taille de chunk

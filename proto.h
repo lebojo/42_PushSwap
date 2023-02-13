@@ -30,7 +30,6 @@ typedef struct s_list{
 
 /* UTILS				*/
 void	ft_putstr(char *s);
-char	*itoa(int val);
 int		ft_atoi(const char *str);
 
 /* CHECK				*/
@@ -50,8 +49,9 @@ void	double_rev_rotate(t_list *list);
 void	rev_rotate(t_list *list, char ab, int dbl);
 
 /* ALGORITHM			*/
-void	simple(t_list list, int argc);
 void	algo_complex(t_list list, int chunk_size);
 int		up_or_down(int place, int size);
+int		find_tiny(t_list list);
+int		nb_to_index(int nb, t_list list);
 
 #endif

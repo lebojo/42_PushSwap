@@ -22,47 +22,18 @@ void	ft_putstr(char *s)
 	write(1, "\n", 1);
 }
 
-int	intlen(int s)
+int	int_compare(int comp, int *list, int max)
 {
 	int	i;
 
 	i = 0;
-	if (s < 0)
+	while (i < max)
 	{
-		s *= -1;
+		if (list[i] == comp)
+			return (0);
 		i++;
 	}
-	while (s > 9)
-	{
-		s /= 10;
-		i++;
-	}
-	return (i);
-}
-
-char	*itoa(int val)
-{
-	char	*num;
-	char	*str;
-	int		i;
-	int		ii;
-
-	str = malloc(sizeof(char) * intlen(val) + 2);
-	num = "0123456789abcdef";
-	ii = intlen(val) + 1;
-	str[ii] = '\0';
-	if (val < 0)
-	{
-		*str++ = '-';
-		val = -val;
-	}
-	i = val;
-	while (i)
-	{
-		str[--ii] = num[i % 10];
-		i /= 10;
-	}
-	return (str);
+	return (1);
 }
 
 int	ft_atoi(const char *str)

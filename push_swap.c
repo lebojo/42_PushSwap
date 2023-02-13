@@ -10,26 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-TODO:
-Faire que ca marche avec les 0 et les chifre neg
-ALGO:
-trouver le plus proche du haut de la stack dans les chunk 
-(size/10 = nb de chunk, et ) 
-et le plus proche du bas, pour savoir le quel bouger en premier, puis sur le
-deuxieme chunk etc..
-*/
-
 #include "proto.h"
-
-void	ft_puttab(char *s)
-{
-	int	i;
-
-	i = -1;
-	while (s[++i])
-		write(1, &s[i], 1);
-}
 
 void	init(t_list *list, int argc, char **argv)
 {
@@ -64,31 +45,6 @@ int	chunk_size_calculator(int argc)
 	return (size);
 }
 
-void	print_stacks(t_list list, int len)
-{
-	int	i;
-
-	i = 0;
-	if (DEBUG == 1)
-	{
-		ft_puttab("\n");
-		ft_puttab("\033[0;32mA");
-		ft_puttab("\t");
-		ft_puttab("\033[1;33mB");
-		ft_puttab("\n\033[1;36m---bot---");
-		ft_puttab("\n\033[0;32m");
-		while (i < len - 1)
-		{
-			ft_puttab(itoa(list.a[i]));
-			ft_puttab("\t\033[1;33m");
-			ft_puttab(itoa(list.b[i]));
-			ft_puttab("\n\033[0;32m");
-			i++;
-		}
-		ft_puttab("\033[0m");
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	t_list	list;
@@ -102,4 +58,4 @@ int	main(int argc, char **argv)
 	print_stacks(list, len);
 	return (0);
 }
-//TODO: Trouver la bonne taille de chunk
+//TODO: Trouver la bonne taille de chunk & chiffre neg

@@ -55,12 +55,12 @@ int	chunk_size_calculator(int argc)
 	int	size;
 
 	size = 0;
-	if (argc > 2)
-	{
+	if (argc >= 500)
+		size = argc / 15;
+	else if (argc >= 100)
 		size = argc / 5;
-	}
 	else
-		size = 1;
+		size = 5;
 	return (size);
 }
 

@@ -30,16 +30,6 @@ int	find_tiniest(t_list list, int *excl, int chunk_size)
 	return (tmp);
 }
 
-int	move_calculator(int i, int max)
-{
-	if (i >= max / 2)
-	{
-		return (max - i);
-	}
-	else
-		return (i + 1);
-}
-
 void	align_chunk(int **chunk, int chunk_size, t_list ls, int i_start)
 {
 	int	tmp;
@@ -83,11 +73,29 @@ void	b_sort_to_a(t_list list)
 	}
 }
 
+void	process(t_list list, int *chunk, int i_chunk)
+{
+	int	i;
+
+	i = nb_to_index(chunk[i_chunk], list);
+	if (up_or_down(i, list.top_a) == 1)
+	{
+		while (i++ < list.top_a)
+			rotate(&list, 'a', 0);
+		push(&list, 'b', 0);
+	}
+	else
+	{
+		while (i-- + 1 != 0)
+			rev_rotate(&list, 'a', 0);
+		push(&list, 'b', 0);
+	}
+}
+
 void	algo_complex(t_list list, int chunk_size)
 {
 	int	i_chunk;
 	int	*chunk;
-	int	i;
 
 	while (list.top_a > chunk_size)
 	{
@@ -99,19 +107,7 @@ void	algo_complex(t_list list, int chunk_size)
 		i_chunk = 0;
 		while (i_chunk != chunk_size)
 		{
-			i = nb_to_index(chunk[i_chunk], list);
-			if (up_or_down(i, list.top_a) == 1)
-			{
-				while (i++ < list.top_a)
-					rotate(&list, 'a', 0);
-				push(&list, 'b', 0);
-			}
-			else
-			{
-				while (i-- + 1 != 0)
-					rev_rotate(&list, 'a', 0);
-				push(&list, 'b', 0);
-			}
+			process(list, chunk, i_chunk);
 			i_chunk++;
 			align_chunk(&chunk, chunk_size, list, i_chunk);
 		}

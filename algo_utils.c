@@ -49,3 +49,13 @@ int	nb_to_index(int nb, t_list list)
 	}
 	return (-1);
 }
+
+int	move_calculator(int i, int max)
+{
+	if (i >= max / 2)
+	{
+		return (max - i);
+	}
+	else
+		return (i + 1);
+}

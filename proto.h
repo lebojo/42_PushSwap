@@ -54,5 +54,6 @@ void	algo_complex(t_list list, int chunk_size);
 int		up_or_down(int place, int size);
 int		find_tiny(t_list list);
 int		nb_to_index(int nb, t_list list);
+int		move_calculator(int i, int max);
 
 #endif

@@ -48,7 +48,8 @@ void	align_chunk(int **chunk, int chunk_size, t_list ls, int i_start)
 	i = i_start;
 	while (i < chunk_size - 1)
 	{
-		if (move_calculator(nb_to_index(chunk[0][i], ls), ls.top_a) > move_calculator(nb_to_index(chunk[0][i + 1], ls), ls.top_a))
+		if (move_calculator(nb_to_index(chunk[0][i], ls), ls.top_a)
+		> move_calculator(nb_to_index(chunk[0][i + 1], ls), ls.top_a))
 		{
 			tmp = chunk[0][i];
 			chunk[0][i] = chunk[0][i + 1];

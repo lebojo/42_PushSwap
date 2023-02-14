@@ -14,7 +14,7 @@
 
 int	validity_check(char c)
 {
-	if ((c > 'a' && c < 'z') || c > 'A' && c < 'Z')
+	if ((c > 'a' && c < 'z') || (c > 'A' && c < 'Z'))
 	{
 		ft_putstr("Error\n");
 		return (1);

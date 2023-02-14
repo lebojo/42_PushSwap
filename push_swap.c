@@ -48,14 +48,9 @@ int	chunk_size_calculator(int argc)
 int	main(int argc, char **argv)
 {
 	t_list	list;
-	int		len;
-	int		i;
 
-	len = argc;
 	init(&list, argc, argv);
-	print_stacks(list, len);
 	algo_complex(list, chunk_size_calculator(argc));
-	print_stacks(list, len);
 	return (0);
 }
 //TODO: Trouver la bonne taille de chunk & chiffre neg

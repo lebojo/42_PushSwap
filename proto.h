@@ -31,6 +31,7 @@ typedef struct s_list{
 /* UTILS				*/
 void	ft_putstr(char *s);
 int		ft_atoi(const char *str);
+int		int_compare(int comp, int *list, int max);
 
 /* CHECK				*/
 int		validity_check(char c);

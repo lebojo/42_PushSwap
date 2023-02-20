@@ -34,7 +34,7 @@ int		ft_atoi(const char *str);
 int		int_compare(int comp, int *list, int max);
 
 /* CHECK				*/
-int		validity_check(char c);
+int		validity_check(char *c);
 
 /* INSTRUCTIONS			*/
 void	swap(t_list *list, int ab, int dbl);

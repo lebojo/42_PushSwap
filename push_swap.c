@@ -17,15 +17,16 @@ int	init(t_list *list, int argc, char **argv)
 	int	i;
 
 	i = 0;
-	list[0].a = malloc(sizeof(int) * argc);
-	list[0].b = malloc(sizeof(int) * argc);
+	list[0].a = malloc(sizeof(int) * (argc - 1));
+	list[0].b = malloc(sizeof(int) * (argc - 1));
 	list[0].top_a = argc - 2;
 	list[0].top_b = -1;
 	list[0].size = argc - 2;
 	argc--;
 	while (argc > 0)
 	{
-		if (int_compare(ft_atoi(argv[argc]), list[0].a, i) == 0)
+		if (validity_check(argv[argc]) == 1
+			|| int_compare(ft_atoi(argv[argc]), list[0].a, i) == 0)
 			return (0);
 		list[0].a[i] = ft_atoi(argv[argc]);
 		argc--;

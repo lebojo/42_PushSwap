@@ -12,12 +12,13 @@
 
 #include "proto.h"
 
-int	validity_check(char c)
+int	validity_check(char *c)
 {
-	if ((c > 'a' && c < 'z') || (c > 'A' && c < 'Z'))
-	{
-		ft_putstr("Error\n");
-		return (1);
-	}
+	int	i;
+
+	i = -1;
+	while (c[++i])
+		if ((c[i] >= 'a' && c[i] <= 'z') || (c[i] >= 'A' && c[i] <= 'Z'))
+			return (1);
 	return (0);
 }

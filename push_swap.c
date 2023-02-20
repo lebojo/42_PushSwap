@@ -12,7 +12,7 @@
 
 #include "proto.h"
 
-void	init(t_list *list, int argc, char **argv)
+int	init(t_list *list, int argc, char **argv)
 {
 	int	i;
 
@@ -25,10 +25,13 @@ void	init(t_list *list, int argc, char **argv)
 	argc--;
 	while (argc > 0)
 	{
+		if (int_compare(ft_atoi(argv[argc]), list[0].a, i) == 0)
+			return (0);
 		list[0].a[i] = ft_atoi(argv[argc]);
 		argc--;
 		i++;
 	}
+	return (1);
 }
 
 int	chunk_size_calculator(int argc)
@@ -48,9 +51,13 @@ int	chunk_size_calculator(int argc)
 int	main(int argc, char **argv)
 {
 	t_list	list;
+	int		check;
 
-	init(&list, argc, argv);
-	algo_complex(list, chunk_size_calculator(argc));
+	check = init(&list, argc, argv);
+	if (check != 0)
+		algo_complex(list, chunk_size_calculator(argc));
+	else
+		ft_putstr("Error input");
 	return (0);
 }
-//TODO: Trouver la bonne taille de chunk & chiffre neg
+//TODO: le check pour pas deux fois le même chiffre

@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:15:40 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/21 21:09:53 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/02/22 00:50:35 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,17 @@ void	ft_putstr(char *s)
 	write(1, "\n", 1);
 }
 
+int	analyze(t_list list)
+{
+	int	i;
+
+	i = 0;
+	while(++i <= list.top_a)
+		if (list.a[i - 1] < list.a[i])
+			return (1);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	list;
@@ -67,7 +78,10 @@ int	main(int argc, char **argv)
 	check = init(&list, argc, argv);
 	if (check == 0)
 		write(2, "Error\n", 6);
-	else if (argc > 2)
+	else if (argc > 2 && analyze(list) == 1)
 		algo_complex(list, chunk_size_calculator(argc));
+	free(list.a);
+	free(list.b);
 	return (0);
 }
+//TODO: les 0 wtf et les list de 5

@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:43:34 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/21 21:32:50 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/02/22 00:32:07 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,18 @@ int	ft_strcmp(const char *s1, const char *s2)
 
 int	validity_check(char *c)
 {
-	int tmp;
+	int 	tmp;
+	char	*tmp_c;
 	
 	while (*c && *c == ' ')
 		c++;
 	tmp = ft_atoi(c);
-	if (ft_strcmp(c, ft_itoa(tmp)) == 1)
+	tmp_c = ft_itoa(tmp);
+	if (ft_strcmp(c, tmp_c) == 1)
+	{
+		free(tmp_c);
 		return (1);
+	}
+	free(tmp_c);
 	return (0);
 }

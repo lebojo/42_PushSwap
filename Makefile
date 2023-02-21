@@ -12,7 +12,8 @@ SRC 		=	push_swap.c utils.c \
 				instructions.c check.c \
 				instructions_double.c \
 				instructions_reverse.c \
-				algorithm_complex.c algo_utils.c
+				algorithm_complex.c algo_utils.c \
+				ft_itoa.c
 
 # ------------  FILEPATHS  --------------------------------------------------- #
 SRCS 		= $(addprefix $(SRC_PATH),$(SRC))
@@ -21,7 +22,7 @@ OBJS		= ${SRCS:.c=.o}
 all: $(NAME) 
 
 $(NAME): $(OBJS)
-			$(CC) $(CFLAGS) -o $(@) $(^)
+			$(CC) $(CFLAGS) -o $(@) $(^) -g
 
 
 %.o: %.c

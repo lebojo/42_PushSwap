@@ -6,21 +6,11 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:26:57 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/09 17:07:40 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/02/21 21:20:15 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "proto.h"
-
-void	ft_putstr(char *s)
-{
-	int	i;
-
-	i = -1;
-	while (s[++i])
-		write(1, &s[i], 1);
-	write(1, "\n", 1);
-}
 
 int	int_compare(int comp, int *list, int max)
 {
@@ -58,4 +48,29 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (res_sign * res);
+}
+
+int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+void	*ft_memset(void *b, int c, size_t len)
+{
+	unsigned char	*tmp;
+	size_t			i;
+
+	tmp = (unsigned char *)b;
+	i = 0;
+	while (i < len)
+	{
+		tmp[i] = (unsigned char)c;
+		i++;
+	}
+	return (b);
 }

@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:47:42 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/01 00:46:16 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/02/21 21:20:24 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ typedef struct s_list{
 void	ft_putstr(char *s);
 int		ft_atoi(const char *str);
 int		int_compare(int comp, int *list, int max);
+char	*ft_itoa(int n);
+int		ft_strlen(const char *str);
+void	*ft_memset(void *b, int c, size_t len);
 
 /* CHECK				*/
 int		validity_check(char *c);

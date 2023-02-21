@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:15:40 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/01 00:51:44 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/02/21 21:09:53 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,25 @@ int	chunk_size_calculator(int argc)
 	return (size);
 }
 
+void	ft_putstr(char *s)
+{
+	int	i;
+
+	i = -1;
+	while (s[++i])
+		write(1, &s[i], 1);
+	write(1, "\n", 1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	list;
 	int		check;
 
 	check = init(&list, argc, argv);
-	if (check != 0)
+	if (check == 0)
+		write(2, "Error\n", 6);
+	else if (argc > 2)
 		algo_complex(list, chunk_size_calculator(argc));
-	else
-		ft_putstr("Error input");
 	return (0);
 }
-//TODO: le check pour pas deux fois le même chiffre

@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:28:50 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/09 18:34:33 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/02/24 20:37:28 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,22 +73,22 @@ void	b_sort_to_a(t_list list)
 	}
 }
 
-void	process(t_list list, int *chunk, int i_chunk)
+void	process(t_list *list, int *chunk, int i_chunk)
 {
 	int	i;
 
-	i = nb_to_index(chunk[i_chunk], list);
-	if (up_or_down(i, list.top_a) == 1)
+	i = nb_to_index(chunk[i_chunk], list[0]);
+	if (up_or_down(i, list[0].top_a) == 1)
 	{
-		while (i++ < list.top_a)
-			rotate(&list, 'a', 0);
-		push(&list, 'b', 0);
+		while (i++ < list[0].top_a)
+			rotate(&list[0], 'a', 0);
+		push(&list[0], 'b', 0);
 	}
 	else
 	{
 		while (i-- + 1 != 0)
-			rev_rotate(&list, 'a', 0);
-		push(&list, 'b', 0);
+			rev_rotate(&list[0], 'a', 0);
+		push(&list[0], 'b', 0);
 	}
 }
 
@@ -107,7 +107,7 @@ void	algo_complex(t_list list, int chunk_size)
 		i_chunk = 0;
 		while (i_chunk != chunk_size)
 		{
-			process(list, chunk, i_chunk);
+			process(&list, chunk, i_chunk);
 			i_chunk++;
 			align_chunk(&chunk, chunk_size, list, i_chunk);
 		}

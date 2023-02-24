@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:26:57 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/21 21:20:15 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/02/24 19:20:19 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	ft_atoi(const char *str)
 			res_sign = -1;
 		str++;
 	}
+	if (*str == '0')
+		return (0);
 	while (*str >= '0' && *str <= '9')
 	{
 		res = res * 10 + (*str - '0');

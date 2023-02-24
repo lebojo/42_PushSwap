@@ -13,7 +13,8 @@ SRC 		=	push_swap.c utils.c \
 				instructions_double.c \
 				instructions_reverse.c \
 				algorithm_complex.c algo_utils.c \
-				ft_itoa.c
+				ft_itoa.c \
+				algorithm_simple.c
 
 # ------------  FILEPATHS  --------------------------------------------------- #
 SRCS 		= $(addprefix $(SRC_PATH),$(SRC))

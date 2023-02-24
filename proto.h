@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:47:42 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/21 21:20:24 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/02/24 19:42:00 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,7 @@ int		up_or_down(int place, int size);
 int		find_tiny(t_list list);
 int		nb_to_index(int nb, t_list list);
 int		move_calculator(int i, int max);
+void	algo_simple(t_list list);
+void	b_sort_to_a(t_list list);
 
 #endif

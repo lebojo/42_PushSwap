@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:15:40 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/22 00:50:35 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/02/24 20:15:10 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ int	init(t_list *list, int argc, char **argv)
 
 	i = 0;
 	list[0].a = malloc(sizeof(int) * (argc - 1));
+	if (!list[0].a)
+		return (0);
 	list[0].b = malloc(sizeof(int) * (argc - 1));
+	if (!list[0].b)
+		return (0);
 	list[0].top_a = argc - 2;
 	list[0].top_b = -1;
 	list[0].size = argc - 2;
@@ -64,7 +68,7 @@ int	analyze(t_list list)
 	int	i;
 
 	i = 0;
-	while(++i <= list.top_a)
+	while (++i <= list.top_a)
 		if (list.a[i - 1] < list.a[i])
 			return (1);
 	return (0);
@@ -78,10 +82,15 @@ int	main(int argc, char **argv)
 	check = init(&list, argc, argv);
 	if (check == 0)
 		write(2, "Error\n", 6);
-	else if (argc > 2 && analyze(list) == 1)
-		algo_complex(list, chunk_size_calculator(argc));
+	else if (analyze(list) == 1)
+	{
+		if (argc > 6)
+			algo_complex(list, chunk_size_calculator(argc));
+		else
+			algo_simple(list);
+	}
 	free(list.a);
 	free(list.b);
 	return (0);
 }
-//TODO: les 0 wtf et les list de 5
+//TODO: les 0 wtf

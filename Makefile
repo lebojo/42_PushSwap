@@ -1,40 +1,44 @@
-NAME		= push_swap
+NAME = push_swap
 
-SRC_PATH	= ./
+SRC_PATH = ./
+SRC_OBJ = ./
+SRC_INCLUDES = ./
 
-# ------------  FLAGS  ------------------------------------------------------- #
-CFLAGS 		= -Wall -Wextra -Werror
-CC			= gcc
-RM			=	rm -rf
+HEADER = proto.h
+SRC =	push_swap.c utils.c \
+		instructions.c check.c \
+		instructions_double.c \
+		instructions_reverse.c \
+		algorithm_complex.c algo_utils.c \
+		ft_itoa.c \
+		algorithm_simple.c
 
-# ------------  SOURCE FILES  ------------------------------------------------ #
-SRC 		=	push_swap.c utils.c \
-				instructions.c check.c \
-				instructions_double.c \
-				instructions_reverse.c \
-				algorithm_complex.c algo_utils.c \
-				ft_itoa.c \
-				algorithm_simple.c
+CFLAGS = -Wall -Wextra -Werror
+OPTIONS =  -I$(SRC_INCLUDES)
 
-# ------------  FILEPATHS  --------------------------------------------------- #
-SRCS 		= $(addprefix $(SRC_PATH),$(SRC))
-OBJS		= ${SRCS:.c=.o}
+SRCS = $(addprefix $(SRC_PATH),$(SRC))
+OBJ = $(SRC:.c=.o)
+OBJS = $(addprefix $(SRC_OBJ),$(OBJ))
+HEADERS = $(addprefix $(SRC_INCLUDES),$(HEADER))
 
-all: $(NAME) 
+CC = gcc
+RM = rm -f
+
+$(SRC_OBJ)%.o: $(SRC_PATH)%.c $(HEADERS)
+	mkdir -p $(SRC_OBJ)
+	$(CC) $(CFLAGS) $(OPTIONS) -o $(@) -c $(<)
+
+all: $(NAME)
 
 $(NAME): $(OBJS)
-			$(CC) $(CFLAGS) -o $(@) $(^) -g
-
-
-%.o: %.c
-		${CC} $(CFLAGS) -c $< -o $@ -g3
+	$(CC) $(CFLAGS) $(OPTIONS) -o $(@) $(^)
 
 clean:
-			$(RM) ${OBJS}
+	$(RM) $(OBJS)
 
-fclean:		clean
-			$(RM) $(NAME) *.a
+fclean: clean
+	$(RM) $(NAME)
 
-re:			fclean all
+re: fclean all
 
-.PHONY: re ignore fclean clean all $(NAME)
+.PHONY: all fclean clean re

@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:15:40 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/24 20:15:10 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/03/01 19:02:41 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,3 @@ int	main(int argc, char **argv)
 	free(list.b);
 	return (0);
 }
-//TODO: les 0 wtf

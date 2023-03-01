@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:47:45 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/24 21:49:14 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/03/01 16:47:39 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,29 +53,30 @@ void	push(t_list *list, char ab, int dbl)
 	}
 }
 
-void	rev_rotate(t_list *list, char ab, int dbl)
+void	rotate(t_list *list, char ab, int dbl)
 {
-	int	first;
+	int	last;
 	int	i;
 
-	first = 0;
-	i = -1;
+	last = 0;
 	if (ab == 'a')
 	{
-		first = list[0].a[0];
-		while (list[0].a[++i + 1])
-			list[0].a[i] = list[0].a[i + 1];
-		list[0].a[i] = first;
+		last = list[0].a[list[0].top_a];
+		i = list[0].top_a + 1;
+		while (--i > 0)
+			list[0].a[i] = list[0].a[i - 1];
+		list[0].a[0] = last;
 		if (!dbl)
-			ft_putstr("rra");
+			ft_putstr("ra");
 	}
 	else if (ab == 'b')
 	{
-		first = list[0].b[0];
-		while (list[0].b[++i + 1])
-			list[0].b[i] = list[0].b[i + 1];
-		list[0].b[i] = first;
+		last = list[0].b[list[0].top_b];
+		i = list[0].top_b + 1;
+		while (--i > 0)
+			list[0].b[i] = list[0].b[i - 1];
+		list[0].b[0] = last;
 		if (!dbl)
-			ft_putstr("rrb");
+			ft_putstr("rb");
 	}
 }

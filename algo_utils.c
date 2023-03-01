@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm_simple.c                                 :+:      :+:    :+:   */
+/*   algo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:17:23 by jchapell          #+#    #+#             */
-/*   Updated: 2023/01/24 23:24:11 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:31:21 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "proto.h"
 
-int	find_tiny(t_list list)
+int	find_big(t_list list)
 {
 	int	i;
 	int	tmp;
@@ -21,7 +21,7 @@ int	find_tiny(t_list list)
 	tmp = 0;
 	while (i <= list.top_b)
 	{
-		if (list.b[tmp] > list.b[i])
+		if (list.b[tmp] < list.b[i])
 			tmp = i;
 		i++;
 	}

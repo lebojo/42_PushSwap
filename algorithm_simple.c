@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 19:12:02 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/24 20:34:11 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:32:49 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	simple_process(t_list *list, int big)
 
 void	align_a(t_list ls)
 {
-	if (ls.a[0] > ls.a[1])
+	if (ls.a[0] < ls.a[1])
 		rotate(&ls, 'a', 0);
 }
 
@@ -44,7 +44,7 @@ void	algo_simple(t_list list)
 		i = -1;
 		big = 0;
 		while (++i <= list.top_a)
-			if (list.a[i] > list.a[big])
+			if (list.a[i] < list.a[big])
 				big = i;
 		simple_process(&list, big);
 	}

@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:28:50 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/24 20:37:28 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:31:20 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	b_sort_to_a(t_list list)
 
 	while (list.top_b >= 0)
 	{
-		i = find_tiny(list);
+		i = find_big(list);
 		if (up_or_down(i, list.top_b) == 1)
 		{
 			while (i++ < list.top_b)

@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:47:42 by jchapell          #+#    #+#             */
-/*   Updated: 2023/02/24 19:42:00 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:31:20 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	rev_rotate(t_list *list, char ab, int dbl);
 /* ALGORITHM			*/
 void	algo_complex(t_list list, int chunk_size);
 int		up_or_down(int place, int size);
-int		find_tiny(t_list list);
+int		find_big(t_list list);
 int		nb_to_index(int nb, t_list list);
 int		move_calculator(int i, int max);
 void	algo_simple(t_list list);

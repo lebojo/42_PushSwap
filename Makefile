@@ -13,7 +13,7 @@ SRC =	push_swap.c utils.c \
 		ft_itoa.c \
 		algorithm_simple.c
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 OPTIONS =  -I$(SRC_INCLUDES)
 
 SRCS = $(addprefix $(SRC_PATH),$(SRC))

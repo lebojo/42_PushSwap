@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:54:06 by jchapell          #+#    #+#             */
-/*   Updated: 2023/03/01 16:47:42 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:00:02 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	rev_rotate(t_list *list, char ab, int dbl)
 	if (ab == 'a')
 	{
 		first = list[0].a[0];
-		while (list[0].a[++i + 1])
+		while (++i + 1 <= list->top_a)
 			list[0].a[i] = list[0].a[i + 1];
 		list[0].a[i] = first;
 		if (!dbl)
@@ -31,7 +31,7 @@ void	rev_rotate(t_list *list, char ab, int dbl)
 	else if (ab == 'b')
 	{
 		first = list[0].b[0];
-		while (list[0].b[++i + 1])
+		while (++i + 1 <= list->top_b)
 			list[0].b[i] = list[0].b[i + 1];
 		list[0].b[i] = first;
 		if (!dbl)

@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:15:40 by jchapell          #+#    #+#             */
-/*   Updated: 2023/03/01 19:09:53 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/03/05 18:12:50 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,11 @@ int	chunk_size_calculator(int argc)
 {
 	int	size;
 
-	size = 0;
+	size = 5;
 	if (argc >= 500)
 		size = argc / 15;
 	else if (argc >= 100)
 		size = argc / 5;
-	else
-		size = 5;
 	return (size);
 }
 

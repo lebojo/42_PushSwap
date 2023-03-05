@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:28:50 by jchapell          #+#    #+#             */
-/*   Updated: 2023/03/01 17:31:20 by jchapell         ###   ########.fr       */
+/*   Updated: 2023/03/05 19:45:18 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,3 +118,4 @@ void	algo_complex(t_list list, int chunk_size)
 		push(&list, 'b', 0);
 	b_sort_to_a(list);
 }
+//TODO: 0
